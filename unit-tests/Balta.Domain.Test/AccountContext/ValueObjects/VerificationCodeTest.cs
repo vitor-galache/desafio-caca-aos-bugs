@@ -1,10 +1,12 @@
+using Balta.Domain.AccountContext.ValueObjects;
+
 namespace Balta.Domain.Test.AccountContext.ValueObjects;
 
 public class VerificationCodeTest
 {
     [Fact]
     public void ShouldGenerateVerificationCode() => Assert.Fail();
-
+    
     [Fact]
     public void ShouldGenerateExpiresAtInFuture() => Assert.Fail();
 
