@@ -15,7 +15,7 @@ public partial class ListCategoriesPage : ComponentBase
     public string SearchTerm { get; set; } = string.Empty;
 
     #endregion
-
+    
     #region Services
 
     [Inject]
@@ -39,7 +39,7 @@ public partial class ListCategoriesPage : ComponentBase
             var request = new GetAllCategoriesRequest();
             var result = await Handler.GetAllAsync(request);
             if (result.IsSuccess)
-                Categories.AddRange(result.Data!);
+                Categories.AddRange(result.Data ?? []);
         }
         catch (Exception ex)
         {
