@@ -10,6 +10,7 @@ public partial class IncomesAndExpensesChartComponent : ComponentBase
 {
     #region Properties
 
+    public bool IsLoading { get; set; } = true;
     public ChartOptions Options { get; set; } = new();
     public List<ChartSeries>? Series { get; set; }
     public List<string> Labels { get; set; } = [];
@@ -38,6 +39,7 @@ public partial class IncomesAndExpensesChartComponent : ComponentBase
             return;
         }
 
+        IsLoading = false;
         var incomes = new List<double>();
         var expenses = new List<double>();
 

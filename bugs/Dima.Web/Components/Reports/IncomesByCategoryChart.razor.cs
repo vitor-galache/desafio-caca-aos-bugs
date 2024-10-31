@@ -9,6 +9,7 @@ public partial class IncomesByCategoryChartComponent : ComponentBase
 {
     #region Properties
 
+    public bool IsLoading { get; set; } = true;
     public List<double> Data { get; set; } = [];
     public List<string> Labels { get; set; } = [];
 
@@ -28,7 +29,15 @@ public partial class IncomesByCategoryChartComponent : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        await GetIncomesByCategoryAsync();
+        try
+        {
+            await GetIncomesByCategoryAsync();
+
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
 
     private async Task GetIncomesByCategoryAsync()
